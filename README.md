@@ -60,3 +60,35 @@ Bu projenin amacı Kepler yörünge elemanlarını kullanarak uyduların yörün
 ---
 *Bu proje Hacettepe Üniversitesi Jeomatik Mühendisliği bölümü GMT225 dersi kapsamında geliştirilmiştir.*
 
+
+
+
+# 🛰️Satellite Ground Track Generator 
+
+Bu proje, Python kullanarak belirlenen yörünge parametrelerine göre bir uydunun Dünya üzerindeki izini (Ground Track) simüle eden ve harita üzerinde görselleştiren bir araçtır
+
+Simülasyon, Dünya'nın kendi ekseni etrafındaki dönüşünü ve uydunun yörünge hareketini senkronize bir döngü içinde hesaplayarak uydunun anlık konumunu haritaya işler.
+
+##  Temel Özellikler
+* **Dinamik Yörünge Takibi:** Zamanın her saniyesi için uydunun konumunu günceller ve Dünya'nın dönüşünü hesaba katarak (Earth Rotation) iz düşümünü hesaplar.
+* **Koordinat Dönüşümleri:** Yörünge düzleminden coğrafi koordinatlara (Enlem/Boylam) anlık dönüşüm yapar.
+* **Görselleştirme:** `Cartopy` ve `Matplotlib` kullanarak uydunun rotasını dünya haritası üzerinde çizer.
+
+##  Kullanılan Kütüphaneler
+* **Python 3.x**
+* **NumPy:** Vektörel hesaplamalar ve nümerik işlemler için.
+* **Astropy:** Astronomik birimler ve zaman dönüşümleri için.
+* **Cartopy:** Coğrafi veri işleme ve harita projeksiyonları (PlateCarree vb.) için.
+* **Matplotlib:** Grafik çizimi ve görselleştirme için.
+* **Math:** Trigonometrik fonksiyonlar için.
+
+## ⚙️ Nasıl Çalışır?
+1. **Başlangıç:** Uydu yörünge parametreleri ve başlangıç zamanı tanımlanır.
+2. **Döngü (Loop):** Kod, her saniye için:
+    * Uydunun yörünge üzerindeki yeni konumunu hesaplar.
+    * Dünya'nın o sürede ne kadar döndüğünü hesaplayıp koordinat sistemini günceller.
+    * Bulunan (Enlem, Boylam) çiftini harita üzerine bir nokta olarak ekler.
+3. **Sonuç:** Uydunun geçtiği güzergah (Ground Track) harita üzerinde net bir şekilde görülür.
+4. <img width="1181" height="623" alt="image" src="https://github.com/user-attachments/assets/0d255a49-f171-41af-8482-62be02d2c8ba" />
+
+
